@@ -1,0 +1,16 @@
+{
+  "name": "hiveconexionesget",
+  "version": "1.0.0",
+  "description": "sistema gets a hive and steem blockchain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alvaro Gonzalez",
+  "license": "MIT",
+  "dependencies": {
+    "@hiveio/hive-js": "^2.0.4",
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0"
+  }
+}
