@@ -1,23 +1,8 @@
 const axios = require('axios');
-//const { json } = require("express/lib/response");
+
 require("dotenv").config();
 const hive = require('@hiveio/hive-js');
 
-/*
-hive.api.setOptions({ url: 'https://anyx.io' });
-hive.config.set('address_prefix','STM');
-hive.config.set('chain_id','beeab0de00000000000000000000000000000000000000000000000000000000');
-hive.config.set('alternative_api_endpoints', ['https://api.hive.blog', 'https://anyx.io']);
-*/
-
-
-hive.api.setOptions({ url: "https://api.deathwing.me" });
-hive.config.set("alternative_api_endpoints", [
-  "https://api.hive.blog/",
-  "https://api.deathwing.me",
-  "https://anyx.io/",
-]);
-//hive.chain_params['chain_id'] = 'beeab0de00000000000000000000000000000000000000000000000000000000'
 
 
 async function setbrar(plot, seed) {
@@ -62,61 +47,7 @@ async function setbrar(plot, seed) {
 
 
 
-async function sendExpRwr(usuario, amount, id) {
-    wif = process.env.clavekey
-    let json = {
-        contractName: "tokens",
-        contractAction: "transfer",
-        contractPayload: {
-            symbol: "EXP",
-            to: usuario,
-            quantity: "" + amount,
-            memo: "Hold Budsx Rewards",
-        },
-    };
 
-    /*
-    [ "custom_json", 
-{ "id": "ssc-mainnet-hive", 
-"json": "{\"contractName\":\"tokens\",\"contractAction\":\"transfer\",
-\"contractPayload\":{\"symbol\":\"BUDS\",\"to\":\"electru\",\"quantity\":\"55.988\",\
-"memo\":\"Delegation Rewards\"}}", 
-"required_auths": [ "hk-curation" ], 
-"required_posting_auths": [] } ]
-
-
-    
-        "custom_json", 
-        { "id": "qwoyn_plant_plot", 
-        "json": "{\"plotID\":\"51878\",\"seedID\":\"734885\"}", 
-        "required_auths": [], 
-        "required_posting_auths": [ "alvarogonz" ] } 
-        
-
-
-
- */
-
-    let r = await new Promise((resolve, reject) => {
-        hive.broadcast.customJson(
-            wif, ["ihalangels"], [],
-            "ssc-mainnet-hive",
-            JSON.stringify(json),
-            async function(err, result) {
-                if (err) {
-                    setRCrPError(id)
-                    reject(false);
-                    console.log(err)
-                } else {
-                    console.log("Saldada")
-                    setRCrDone(id)
-                    resolve(true);
-                }
-            }
-        )
-    })
-    return r;
-}
 
 
 
@@ -164,12 +95,7 @@ async function setbrar1(plot, seed) {
 
 
 
-    //console.log(cj)
-    /*tx.appendOps(Custom_json(cj))
-    #tx.appendWif(posting)
-    get_key(account, "posting")
-    tx.appendSigner(account, "posting")
-    signed_tx = tx.sign()*/
+ 
 
 
 module.exports = {
@@ -178,7 +104,14 @@ module.exports = {
 }
 
 
+   //console.log(cj)
+    /*tx.appendOps(Custom_json(cj))
+    #tx.appendWif(posting)
+    get_key(account, "posting")
+    tx.appendSigner(account, "posting")
+    signed_tx = tx.sign()*/
 
+    
 /*[ [ 
 "custom_json", 
 { "id": "ssc-mainnet-hive", 
@@ -207,4 +140,44 @@ module.exports = {
 "required_auths": [ "hk-curation" ], 
 "required_posting_auths": [] } ] ]
 
+*/
+
+
+    /*
+    [ "custom_json", 
+{ "id": "ssc-mainnet-hive", 
+"json": "{\"contractName\":\"tokens\",\"contractAction\":\"transfer\",
+\"contractPayload\":{\"symbol\":\"BUDS\",\"to\":\"electru\",\"quantity\":\"55.988\",\
+"memo\":\"Delegation Rewards\"}}", 
+"required_auths": [ "hk-curation" ], 
+"required_posting_auths": [] } ]
+
+
+    
+        "custom_json", 
+        { "id": "qwoyn_plant_plot", 
+        "json": "{\"plotID\":\"51878\",\"seedID\":\"734885\"}", 
+        "required_auths": [], 
+        "required_posting_auths": [ "alvarogonz" ] } 
+        
+
+
+
+ */
+
+ /*
+hive.api.setOptions({ url: 'https://anyx.io' });
+hive.config.set('address_prefix','STM');
+hive.config.set('chain_id','beeab0de00000000000000000000000000000000000000000000000000000000');
+hive.config.set('alternative_api_endpoints', ['https://api.hive.blog', 'https://anyx.io']);
+
+
+
+hive.api.setOptions({ url: "https://api.deathwing.me" });
+hive.config.set("alternative_api_endpoints", [
+  "https://api.hive.blog/",
+  "https://api.deathwing.me",
+  "https://anyx.io/",
+]);
+//hive.chain_params['chain_id'] = 'beeab0de00000000000000000000000000000000000000000000000000000000'
 */
