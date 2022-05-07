@@ -1,10 +1,9 @@
 require("dotenv").config();
 //const aws = require('aws-sdk');
-//const hive = require('@hiveio/hive-js');
-const { json } = require("express/lib/response");
+const hive = require('@hiveio/hive-js');
 
-const port = process.env.PORT || 3000
-    //const H_KEY = process.env.H_KEY
+
+const H_KEY = process.env.H_KEY
 const MONGOUSE = process.env.mongouse
 
 
@@ -28,14 +27,13 @@ const {
 async function test() {
     console.log("Inicializando Hk-curation")
 
-    // const holders = await getTokenHolders("BUDSX")
-    // console.log(holders)
+  
     //   const nft = await getNfts("alvarogonz")
     //  console.log(nft)
     // console.log(toString(nft))
 
-    let plot = 57814
-    let seed = 733553
+    let plot = 57168
+    let seed = 720000
     const sembrar = await setbrar(plot, seed)
 
     console.log(sembrar)
