@@ -1,17 +1,20 @@
-const { json } = require("express/lib/response");
+
 const {
     callContract,
     callBlockchain
 
 } = require("./hivefun.js");
 
-const getNfts = async(account, offset = 0, limit = 1000, indexes = []) => {
+const getPlots = async(account,plot, offset = 0, limit = 20, indexes = []) => {
     const query = {};
     query['properties.TYPE'] = 'plot'
     query['properties.OCCUPIED'] = false
-    query['properties.NAME'] = 'Mexico'
+    query['properties.NAME'] = plot  //Mexico,
+   // query['properties.RENTEDINFO'] = 'n/a'  //Mexico,
+    
+
     if (account) query.account = account;
-    console.log(query)
+    //console.log(query)
     request = {
         method: 'find',
         params: {
@@ -23,20 +26,21 @@ const getNfts = async(account, offset = 0, limit = 1000, indexes = []) => {
             indexes
         },
     };
+
     return callContract(request);
 }
 
 
-const getNftss = async(account, offset = 0, limit = 1000, indexes = []) => {
+const getSeed = async(account,seed, offset = 0, limit = 50, indexes = []) => {
     const query = {};
-    query['properties.TYPE'] = 'seed'
+        query['properties.TYPE'] = 'seed'
         //query['properties.OCCUPIED'] = false
-    query['properties.NAME'] = 'Acapulco Gold'
-        //query['properties.NAME'] = 'Panama Red'
-        //query['properties.WATER'] = 912
-        //query['properties.SPT'] = 7
+        query['properties.NAME'] = seed
+        //query['properties.NAME'] = seed
+        query['properties.PLANTED'] =null
+        //query['properties.SPT'] =6
     if (account) query.account = account;
-    console.log(query)
+    //console.log(query)
     request = {
         method: 'find',
         params: {
@@ -53,6 +57,6 @@ const getNftss = async(account, offset = 0, limit = 1000, indexes = []) => {
 
 
 module.exports = {
-    getNfts,
-    getNftss
+    getPlots,
+    getSeed
 }

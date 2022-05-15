@@ -4,13 +4,17 @@
   "description": "sistema gets a hive and steem blockchain",
   "main": "index.js",
   "scripts": {
+    "start": "node src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alvaro Gonzalez",
   "license": "MIT",
   "dependencies": {
+    "@hiveio/dhive": "^1.2.0",
     "@hiveio/hive-js": "^2.0.4",
     "axios": "^0.26.1",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "hive-tx": "^4.0.1",
+    "node-cron": "^3.0.0"
   }
 }
